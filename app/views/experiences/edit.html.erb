@@ -1,0 +1,34 @@
+<h1 class="text-center">Edit Experience</h1>
+
+<% if @exp.errors.any? %>
+    <% @exp.errors.full_messages.each do |msg| %>
+        <div class="text-danger text-center"><strong><%= msg %></strong></div>
+    <% end %>
+<% end %>
+<br/>
+<div class="col-md-12">
+  <%= form_for @exp, html:{class: 'form-horizontal'} do |e| %>
+      <div class="form-group">
+        <div class="col-md-2 control-label"><label>Company Name</label></div>
+        <div class="col-md-10"><%= e.text_field :company_name, class: 'form-control', placeholder: 'Your Company' %></div>
+      </div>
+      <div class="form-group">
+        <div class="col-md-2 control-label"><label>Job Title</label></div>
+        <div class="col-md-10"><%= e.text_field :job_title, class: 'form-control', placeholder: 'Your Job Title' %></div>
+      </div>
+      <div class="form-group">
+        <div class="col-md-2 control-label"><label>Start Date (DD/MM/YYYY)</label></div>
+        <div class="col-md-10"><%= e.date_field :start_date, class: 'form-control', placeholder: 'Start Date' %></div>
+      </div>
+      <div class="form-group">
+        <div class="col-md-2 control-label"><label>End Date (DD/MM/YYYY)</label></div>
+        <div class="col-md-10"><%= e.date_field :end_date, class: 'form-control', placeholder: 'End Date' %></div>
+      </div>
+      <br/>
+      <div class="form-group">
+        <div class="col-md-offset-2 col-md-10"><%= e.submit "Save Changes", class: 'btn btn-success' %></div>
+      </div>
+  <% end %>
+</div>
+
+
