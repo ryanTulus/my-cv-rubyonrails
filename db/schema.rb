@@ -26,9 +26,8 @@ ActiveRecord::Schema.define(version: 20141027051524) do
   end
 
   create_table "templates", force: true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string "filename"
+    t.string "css_template"
   end
 
   create_table "users", force: true do |t|

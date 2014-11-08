@@ -2,6 +2,13 @@
 
   <h1>Templates</h1>
 
+  <% @templates.each do |t| %>
+      <p>
+        <%= t.filename%><br/>
+        <%= t.css_template%>
+      </p>
+
+  <% end %>
   <%= link_to 'Add New Template', new_template_path, class: 'btn btn-success'%>
 
 </div>

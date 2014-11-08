@@ -48,3 +48,6 @@ gem 'faker'
 
 # Account Authorisation
 gem 'devise'
+
+# file uploader
+gem 'carrierwave'

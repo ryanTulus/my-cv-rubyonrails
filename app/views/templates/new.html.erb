@@ -1,5 +1,12 @@
 <h1 class="text-center">New Templates</h1>
 
-
-
-
+<%= form_for @template, html: {multipart: true} do |f| %>
+    <p>
+      <%= f.label :filename %><br />
+      <%= f.text_field :filename %>
+    </p>
+    <p>
+      <%= f.file_field :css_template %>
+    </p>
+    <p><%= f.submit %></p>
+<% end %>
