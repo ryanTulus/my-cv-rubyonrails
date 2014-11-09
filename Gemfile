@@ -50,4 +50,4 @@ gem 'faker'
 gem 'devise'
 
 # file uploader
-gem 'carrierwave'
+gem 'paperclip'
