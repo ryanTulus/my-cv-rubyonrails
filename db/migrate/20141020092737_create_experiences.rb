@@ -5,6 +5,7 @@ class CreateExperiences < ActiveRecord::Migration
       t.string :company_name
       t.date :start_date
       t.date :end_date
+      t.references :user
     end
   end
 end

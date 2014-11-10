@@ -14,15 +14,17 @@
 ActiveRecord::Schema.define(version: 20141027051524) do
 
   create_table "educations", force: true do |t|
-    t.string "school_name"
-    t.string "school_address"
+    t.string  "school_name"
+    t.string  "school_address"
+    t.integer "user_id"
   end
 
   create_table "experiences", force: true do |t|
-    t.string "job_title"
-    t.string "company_name"
-    t.date   "start_date"
-    t.date   "end_date"
+    t.string  "job_title"
+    t.string  "company_name"
+    t.date    "start_date"
+    t.date    "end_date"
+    t.integer "user_id"
   end
 
   create_table "templates", force: true do |t|
@@ -48,11 +50,21 @@ ActiveRecord::Schema.define(version: 20141027051524) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "gender"
+    t.date     "date_of_birth"
+    t.integer  "postal_code"
+    t.string   "country"
+    t.integer  "failed_attempts",        default: 0,  null: false
+    t.string   "unlock_token"
+    t.datetime "locked_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["unlock_token"], name: "index_users_on_unlock_token", unique: true
 
 end

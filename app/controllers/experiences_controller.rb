@@ -10,9 +10,9 @@ class ExperiencesController < ApplicationController
 
   def create
     @exp = Experience.new(new_experience_params)
-
+    @exp.user_id = current_user.id
     if @exp.save
-      redirect_to action: 'index'
+      redirect_to homepages_path
     else
       render action: 'new'
     end
@@ -26,7 +26,7 @@ class ExperiencesController < ApplicationController
     @exp = Experience.find(find_experience_params)
 
     if @exp.update_attributes(new_experience_params)
-      redirect_to action: 'index'
+      redirect_to homepages_path
     else
       render action: 'edit'
     end
@@ -36,7 +36,7 @@ class ExperiencesController < ApplicationController
     @exp = Experience.find(find_experience_params)
 
     @exp.delete
-    redirect_to action: 'index'
+    redirect_to action: homepages_path
   end
 
 

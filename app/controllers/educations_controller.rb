@@ -11,10 +11,11 @@ class EducationsController < ApplicationController
 
   def create
     @edu = Education.new(new_education_param)
+    @edu.user_id = current_user.id
     Rails.logger.info ">>>>>>>>>>>>>>>>> #{@edu.inspect}"
 
     if @edu.save
-      redirect_to action: 'index'
+      redirect_to homepages_path
     else
       Rails.logger.info ">>>>>>>>>>>>>> #{@edu.errors.inspect}"
       render action: 'new'
@@ -29,7 +30,7 @@ class EducationsController < ApplicationController
   def update
     @edu = Education.find(find_education_param)
     if @edu.update_attributes(update_education_param)
-      redirect_to action: 'index'
+      redirect_to homepages_path
     else
       render action: 'edit'
     end
@@ -40,7 +41,7 @@ class EducationsController < ApplicationController
     Rails.logger.info ">>>>>>>>>>>>>>> #{destroy_education_param.inspect}"
 
     @edu.delete
-    redirect_to action: 'index'
+    redirect_to action: homepages_path
   end
 
 
