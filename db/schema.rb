@@ -54,15 +54,15 @@ ActiveRecord::Schema.define(version: 20141115050514) do
   end
 
   create_table "templates", force: true do |t|
-    t.string   "template_name"
-    t.string   "html_template_file_name"
-    t.string   "html_template_content_type"
-    t.integer  "html_template_file_size"
-    t.datetime "html_template_updated_at"
-    t.string   "css_template_file_name"
-    t.string   "css_template_content_type"
-    t.integer  "css_template_file_size"
-    t.datetime "css_template_updated_at"
+    t.string   "template_theme_name"
+    t.string   "html_file_file_name"
+    t.string   "html_file_content_type"
+    t.integer  "html_file_file_size"
+    t.datetime "html_file_updated_at"
+    t.string   "css_file_file_name"
+    t.string   "css_file_content_type"
+    t.integer  "css_file_file_size"
+    t.datetime "css_file_updated_at"
     t.integer  "admin_id"
   end
 

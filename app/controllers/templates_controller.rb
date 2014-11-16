@@ -10,7 +10,7 @@ class TemplatesController < DashboardsController
     @template = Template.new(new_template_params)
     @template.admin_id = current_admin.id
 
-    if @template.save
+    if admin_signed_in? && @template.save
       redirect_to dashboards_path
     else
       render action: 'new'
@@ -34,8 +34,8 @@ class TemplatesController < DashboardsController
   def destroy
     @template = Template.find(find_template_params)
 
-    @template.html_template = nil
-    @template.css_template = nil
+    @template.html_file = nil
+    @template.css_file = nil
     @template.delete
 
     redirect_to dashboards_path
@@ -44,7 +44,7 @@ class TemplatesController < DashboardsController
   private
 
   def new_template_params
-    params.require(:template).permit(:template_name, :html_template, :css_template)
+    params.require(:template).permit(:template_theme_name, :html_file, :css_file)
   end
 
   def find_template_params

@@ -6,18 +6,18 @@
     <thead>
     <tr>
       <td><strong>ID</strong></td>
-      <td><strong>Template Name</strong></td>
-      <td><strong>HTML file</strong></td>
-      <td><strong>CSS file</strong></td>
+      <td><strong>Template Theme</strong></td>
+      <td><strong>HTML File Path</strong></td>
+      <td><strong>CSS File Path</strong></td>
     </tr>
     </thead>
     <tbody>
     <% @templates.each do |t| %>
         <tr>
           <td><%= t.id %></td>
-          <td><%= t.template_name %></td>
-          <td><%= t.html_template %></td>
-          <td><%= t.css_template %></td>
+          <td><%= t.template_theme_name %></td>
+          <td><%= t.html_file %></td>
+          <td><%= t.css_file %></td>
           <td><%= link_to "Modify", edit_template_path(t), class: 'btn btn-info' %>&nbsp;<%= link_to "Delete", template_path(t), method: :delete, class: 'btn btn-danger' %></td>
         </tr>
     <% end %>

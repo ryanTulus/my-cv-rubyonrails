@@ -11,7 +11,8 @@ class ExperiencesController < ApplicationController
   def create
     @exp = Experience.new(new_experience_params)
     @exp.user_id = current_user.id
-    if @exp.save
+    
+    if user_signed_in? && @exp.save
       redirect_to homepages_path
     else
       render action: 'new'

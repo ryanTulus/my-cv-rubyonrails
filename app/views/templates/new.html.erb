@@ -9,17 +9,17 @@
 <%= form_for @template, html: {multipart: true} do |f| %>
     <p>
       <%= f.label :template_theme_name , "Template Theme Name"%><br />
-      <%= f.text_field :template_name %>
+      <%= f.text_field :template_theme_name %>
     </p>
 
     <p>
       <%= f.label :html_file, "HTML file" %>
-      <%= f.file_field :html_template %>
+      <%= f.file_field :html_file %>
     </p>
 
     <p>
       <%= f.label :css_file, "CSS file" %>
-      <%= f.file_field :css_template %>
+      <%= f.file_field :css_file %>
     </p>
 
     <p><%= f.submit %></p>

@@ -14,7 +14,7 @@ class EducationsController < ApplicationController
     @edu.user_id = current_user.id
     Rails.logger.info ">>>>>>>>>>>>>>>>> #{@edu.inspect}"
 
-    if @edu.save
+    if user_signed_in? && @edu.save
       redirect_to homepages_path
     else
       Rails.logger.info ">>>>>>>>>>>>>> #{@edu.errors.inspect}"
