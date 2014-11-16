@@ -1,6 +1,6 @@
 class TemplatesController < DashboardsController
 
-  before_action :authenticate_user!
+  before_action :authenticate_admin!
 
   def new
     @template = Template.new
@@ -8,6 +8,7 @@ class TemplatesController < DashboardsController
 
   def create
     @template = Template.new(new_template_params)
+    @template.admin_id = current_admin.id
 
     if @template.save
       redirect_to dashboards_path
@@ -43,7 +44,7 @@ class TemplatesController < DashboardsController
   private
 
   def new_template_params
-    params.require(:template).permit(:filename, :html_template, :css_template)
+    params.require(:template).permit(:template_name, :html_template, :css_template)
   end
 
   def find_template_params

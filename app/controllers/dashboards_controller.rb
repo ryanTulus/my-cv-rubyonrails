@@ -1,9 +1,11 @@
 class DashboardsController < ApplicationController
-
-  before_action :authenticate_user!
+  
+  layout 'dashboards'
+  
+  before_action :authenticate_admin!
 
   def index
-    @templates = Template.all
+    @templates = Template.where(admin_id: current_admin.id)
   end
 
 end

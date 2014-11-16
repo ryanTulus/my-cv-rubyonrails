@@ -1,18 +1,24 @@
 <h1 class="text-center">New Templates</h1>
 
+<% if @template.errors.any? %>
+    <% @template.errors.full_messages.each do |msg| %>
+        <div class="text-danger text-center"><h4><%= msg %></h4></div>
+    <% end %>
+<% end %>
+
 <%= form_for @template, html: {multipart: true} do |f| %>
     <p>
-      <%= f.label :file_name %><br />
-      <%= f.text_field :filename %>
+      <%= f.label :template_name %><br />
+      <%= f.text_field :template_name %>
     </p>
 
     <p>
-      <%= f.label :html_file %>
+      <%= f.label :html_file, "HTML file" %>
       <%= f.file_field :html_template %>
     </p>
 
     <p>
-      <%= f.label :css_file %>
+      <%= f.label :css_file, "CSS file" %>
       <%= f.file_field :css_template %>
     </p>
 
