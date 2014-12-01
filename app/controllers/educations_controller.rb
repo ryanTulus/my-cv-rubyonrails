@@ -38,10 +38,9 @@ class EducationsController < ApplicationController
 
   def destroy
     @edu = Education.find(find_education_param)
-    Rails.logger.info ">>>>>>>>>>>>>>> #{destroy_education_param.inspect}"
 
     @edu.delete
-    redirect_to action: homepages_path
+    redirect_to homepages_path
   end
 
 

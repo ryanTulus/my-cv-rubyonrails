@@ -1,7 +1,7 @@
 
 <div class="col-md-12">
 
-	<h1 class="text-center">Educations</h1>
+	<h2 class="text-center">Educations</h2>
   <%= link_to "Add Education", new_education_path, class: 'btn btn-success' %>
   <br></br>
 	<table class="table table-bordered table-hover table-responsive table-condensed">
@@ -18,14 +18,25 @@
           <td><%= e.id %></td>
           <td><%= e.school_name %></td>
           <td><%= e.school_address %></td>
-          <td><%= link_to "Modify", edit_education_path(e), class: 'btn btn-info' %>&nbsp;<%= link_to "Delete", education_path(e), method: :delete, class: 'btn btn-danger' %></td>
+          <td>
+            <div class='text-center'>
+              <%= link_to "Modify", edit_education_path(e), class: 'btn btn-info' %>
+            </div>
+          </td>
+          <td>
+            <div class='text-center'>
+              <%= link_to "Delete", education_path(e), method: :delete, class: 'btn btn-danger' %>
+            </div>
+          </td>
         </tr>
       <% end %>
     </tbody>
   </table>
-
   
-  <h1 class="text-center">Experiences</h1>
+  <br/>
+  <hr>
+  
+  <h2 class="text-center">Experiences</h2>
   <%= link_to "Add Experience", new_experience_path, class: 'btn btn-success' %>
   <br></br>
   <table class="table table-bordered table-hover table-responsive table-condensed">
@@ -46,10 +57,23 @@
           <td><%= e.job_title %></td>
           <td><%= e.start_date %></td>
           <td><%= e.end_date %></td>
-          <td><%= link_to "Modify", edit_experience_path(e), class: 'btn btn-info' %>&nbsp;<%= link_to "Delete", experience_path(e), method: :delete, class: 'btn btn-danger' %></td>
+          <td>
+            <div class='text-center'>
+              <%= link_to "Modify", edit_experience_path(e), class: 'btn btn-info' %>
+            </div>
+          </td>
+          <td>
+            <div class='text-center'>
+              <%= link_to "Delete", experience_path(e), method: :delete, class: 'btn btn-danger' %>
+            </div>
+          </td>
         </tr>
     <% end %>
     </tbody>
   </table>
+  
+  <br/>
+  
+  <%= link_to "Proceed to Choose Template &#9658;".html_safe, template_viewers_path, class: 'pull-right btn btn-primary' %>
 
 </div>

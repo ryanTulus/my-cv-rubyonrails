@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   resources :dashboards
   resources :templates
   resources :homepages
+  resources :template_viewers
 
   # Example resource route with options:
   #   resources :products do
